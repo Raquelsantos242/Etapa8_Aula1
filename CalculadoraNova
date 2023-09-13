@@ -1,3 +1,7 @@
+
+
+
+
 public delegate double OperacaoAritmetica(double a, double b);
 class Program
 {
@@ -41,13 +45,24 @@ class Program
         Console.WriteLine($"Multiplicacao: {calc.Multiplicacao(1, 1)}");
         Console.WriteLine($"Divisão: {calc.Divisao(1, 1)}");
 
+        /*
         OperacaoAritmetica operacao = delegate (double a, double b)
         {
             return a*a + b*b; //calcular a^2 + b^2
         };
+        */
+
+        OperacaoAritmetica operacao = (a, b) => a * a + b * b; // => tem a funcção de: { return }
 
         Console.WriteLine("dev pleno no comando:" + calc.ExecutarOperacao(1, 2, operacao));
+
         
+        operacao = delegate (double a, double b)
+        {
+            return a * a * a; //calcular a^3
+        };
+
+        Console.WriteLine("dev pleno no comando:" + calc.ExecutarOperacao(1, 2, operacao));
 
         Console.ReadKey();
 
