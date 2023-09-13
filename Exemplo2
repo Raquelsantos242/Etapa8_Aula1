@@ -1,0 +1,83 @@
+using etapa8_aula1;
+
+public delegate double OperacaoAritmetica(double a, double b);
+class Program
+{
+    
+
+
+
+    public static void Main()
+    {
+
+        CalculadoraXpto calc = new CalculadoraXpto();
+
+        Console.WriteLine($"Soma: {calc.Soma(1, 1)}");
+        Console.WriteLine($"Subtracao: {calc.Subtracao(1, 1)}");
+        Console.WriteLine($"Multiplicacao: {calc.Multiplicacao(1, 1)}");
+        Console.WriteLine($"Divisão: {calc.Divisao(1, 1)}");
+
+
+
+
+
+        //Console.WriteLine("dev pleno no comando:" + calc.ExecutarOperacao(1, 2, operacao));
+
+        Console.WriteLine("dev senior limou :" + calc.CalculaSomaAoQuadrado(1,2));
+
+        Console.ReadKey();
+
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace etapa8_aula1
+{
+    public class Calculadora
+    {       
+
+        public double Soma(double a, double b)
+        {
+            return a + b;
+        }
+
+        public double Subtracao(double a, double b)
+        {
+            return a - b;
+        }
+
+        public double Multiplicacao(double a, double b)
+        {
+            return a * b;
+        }
+
+        public double Divisao(double a, double b)
+        {
+            return a / b;
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace etapa8_aula1
+{
+    public class CalculadoraXpto :Calculadora
+    {
+        public double  CalculaSomaAoQuadrado(double a, double b) 
+        {
+            return a * a + b * b;
+        }
+    }
+}
