@@ -1,0 +1,55 @@
+public delegate double OperacaoAritmetica(double a, double b);
+class Program
+{
+    public class Calculadora
+    {
+        public double ExecutarOperacao(double a, double b, OperacaoAritmetica op)
+        {
+            return op(a, b);
+        }
+
+        public double Soma(double a, double b)
+        {
+            return a + b;
+        }
+
+        public double Subtracao(double a, double b)
+        {
+            return a - b;
+        }
+
+        public double Multiplicacao(double a, double b)
+        {
+            return a * b;
+        }
+
+        public double Divisao(double a, double b)
+        {
+            return a / b;
+        }
+    }
+
+
+
+    public static void Main()
+    {
+
+        Calculadora calc = new Calculadora();
+
+        Console.WriteLine($"Soma: {calc.Soma(1, 1)}");
+        Console.WriteLine($"Subtracao: {calc.Subtracao(1, 1)}");
+        Console.WriteLine($"Multiplicacao: {calc.Multiplicacao(1, 1)}");
+        Console.WriteLine($"Divisão: {calc.Divisao(1, 1)}");
+
+        OperacaoAritmetica operacao = delegate (double a, double b)
+        {
+            return a*a + b*b; //calcular a^2 + b^2
+        };
+
+        Console.WriteLine("dev pleno no comando:" + calc.ExecutarOperacao(1, 2, operacao));
+        
+
+        Console.ReadKey();
+
+    }
+}
